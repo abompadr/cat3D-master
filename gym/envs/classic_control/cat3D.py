@@ -253,7 +253,7 @@ class cat3D(gym.Env):
         if not done:
             penalty = 0
                 
-        return np.array(self.state), -penalty, done, {}
+        return np.array(self.state), penalty, done, {}
 
     #cost of the current state
     def cost(self):
@@ -346,8 +346,9 @@ class cat3D(gym.Env):
         anglePerturbation = 30.0*2*math.pi / 360 #180.0*2*math.pi / 360
         angle1 = self.np_random.uniform(low = -anglePerturbation, high=anglePerturbation)
         rotAngleY += angle1
-                           
-        print("reset: rotAngleY = " + str(round(rotAngleY/(2*math.pi)*360.0, 4)))
+        
+        if (self.debug_messages):                   
+            print("After the perturbation: initial rotAngleY = " + str(round(rotAngleY/(2*math.pi)*360.0, 4)))
         pointsP = self.rotate3D_v4(pointsP, rotAngleX, rotAngleY, rotAngleZ, CM)
 
         self.state = np.concatenate((pointsP[0, :], pointsP[1, :], pointsP[2, :], np.array([CM[1], 0.0]), allAngles, 
@@ -412,9 +413,10 @@ class cat3D(gym.Env):
         #scipy minimization magic here...
         res = minimize(self.normAngMom, x0, args= (pointsP, prev_pointsP, CM), method='nelder-mead', options={'xtol': 1e-8, 'disp': False})
 
-        print("new rot angleX = " + str(round(res.x[0]/(2*math.pi)*360.0, 4))
-        + ", new rot angleY = " + str(round(res.x[1]/(2*math.pi)*360.0, 4))
-        +", new rot angleZ = " + str(round(res.x[2]/(2*math.pi)*360.0, 4)))
+        if (self.debug_messages):
+            print("new rot angleX = " + str(round(res.x[0]/(2*math.pi)*360.0, 4))
+            + ", new rot angleY = " + str(round(res.x[1]/(2*math.pi)*360.0, 4))
+            + ", new rot angleZ = " + str(round(res.x[2]/(2*math.pi)*360.0, 4)))
 
         rot2pointsP = self.rotate3D_v4(pointsP, res.x[0], res.x[1], res.x[2], CM)
         return rot2pointsP, res.x[0], res.x[1], res.x[2] 
