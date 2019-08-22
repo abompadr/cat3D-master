@@ -108,11 +108,16 @@ def runCat3D():
     method = 2
     
     if method == 1:
+        print("Using DQNSolver.")
         dqn_solver = DQNSolver(observation_space, action_space)
         fileWeights = "weights3D.h5"
         #uncomment to start off with saved weights
         dqn_solver.load_weights(fileWeights)
-    
+    elif method == 2:
+        print("Using cyclic method.")
+    else:
+        print("User inputs.")
+        
     run = 0
     while run < 10: #True:
         run += 1
@@ -152,7 +157,7 @@ def runCat3D():
                 if run % 100 == 0:
                     dqn_solver.save_weights(fileWeights)
 
-            step += 1    
+            step += 1
 
     input("End. Press any key")
     env.close()
