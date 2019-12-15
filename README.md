@@ -25,5 +25,7 @@ It'd be great if a neural network were able lo learn how to land the cat on its 
 For now, the method "cyclic_action" of the main program is able to do it under the current parameters.
 
 Bibliography
+
 1)Wikipedia article: https://en.wikipedia.org/wiki/Cat_righting_reflex
+
 2) R. Mongomery, Gauge Theory of the Falling Cat (1993) 
