@@ -28,4 +28,4 @@ Bibliography
 
 1)Wikipedia article: https://en.wikipedia.org/wiki/Cat_righting_reflex
 
-2) R. Mongomery, Gauge Theory of the Falling Cat (1993) 
+2)R. Mongomery, Gauge Theory of the Falling Cat (1993) 
