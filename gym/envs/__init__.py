@@ -88,9 +88,17 @@ register(
 register(
     id='cat3D-v1',
     entry_point='gym.envs.classic_control:cat3D',
-    max_episode_steps=200,
-    reward_threshold=-50.0,
+    max_episode_steps=100,
+    reward_threshold=8.0,
 )
+
+register(
+    id='cat3D_simpler-v1',
+    entry_point='gym.envs.classic_control:cat3D_simpler',
+    max_episode_steps=100,
+    reward_threshold=8.0,
+)
+
 register(
     id='MountainCar-v0',
     entry_point='gym.envs.classic_control:MountainCarEnv',
