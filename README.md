@@ -3,7 +3,7 @@ A falling cat has to use its cat righting reflex to land on its feet!
 
 1) How to run it:
 
-There are two original files, cat3D.py in the main folder, and the cat3D.py environment in gym/envs/classic_control. See  https://gym.openai.com/docs/ for a description of the original gym. To build this local environment from our source:
+There are two different versions: a "cat3D" and a "cat3D_simpler". Each one has two original files, cat3D.py (cat3D_simpler.py) in the main folder, and the cat3D.py (cat3D_simpler.py) environment in gym/envs/classic_control. See  https://gym.openai.com/docs/ for a description of the original gym. To build this local environment from our source:
 
 cd gym
 
